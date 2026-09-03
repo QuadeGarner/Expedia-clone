@@ -72,7 +72,7 @@ export const Register = () => {
           // ...
         },
       },
-      auth
+      auth,
     );
   }
 
@@ -80,7 +80,7 @@ export const Register = () => {
   function handleVerifyNumber() {
     document.querySelector("#nextButton").innerText = "Please wait...";
     onCapture();
-    const phoneNumber = `+91${number}`;
+    const phoneNumber = `+1${number}`;
     const appVerifier = window.recaptchaVerifier;
     if (number.length === 10) {
       if (exist) {
@@ -94,9 +94,8 @@ export const Register = () => {
             // user in with confirmationResult.confirm(code).
             window.confirmationResult = confirmationResult;
             setCheck({ ...check, verify: true });
-            document.querySelector(
-              "#loginMesageSuccess"
-            ).innerHTML = `Otp Send To ${number} !`;
+            document.querySelector("#loginMesageSuccess").innerHTML =
+              `Otp Send To ${number} !`;
             document.querySelector("#loginMesageError").innerHTML = "";
             document.querySelector("#nextButton").style.display = "none";
             // ...
@@ -123,9 +122,8 @@ export const Register = () => {
         // User signed in successfully.
         const user = result.user;
         setCheck({ ...check, otpVerify: true });
-        document.querySelector(
-          "#loginMesageSuccess"
-        ).innerHTML = `Verifyed Successful`;
+        document.querySelector("#loginMesageSuccess").innerHTML =
+          `Verifyed Successful`;
         document.querySelector("#loginMesageError").innerHTML = "";
         document.querySelector("#loginNumber").style.display = "none";
         document.querySelector("#loginOtp").style.display = "none";
@@ -154,14 +152,22 @@ export const Register = () => {
       <div className="mainLogin">
         <div id="recaptcha-container"></div>
         <div className="loginBx">
-        <div className="logoImgdivReg"><img className="imglogoReg" src="https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg':'https://i.postimg.cc/fRx4D7QH/logo3.png" alt="" /></div>
+          <div className="logoImgdivReg">
+            <img
+              className="imglogoReg"
+              src="https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg':'https://i.postimg.cc/fRx4D7QH/logo3.png"
+              alt=""
+            />
+          </div>
 
           <div className="loginHead">
-          <hr /><hr /><hr />
+            <hr />
+            <hr />
+            <hr />
 
             <h1>Register</h1>
           </div>
-          
+
           <div className="loginInputB" id="loginNumber">
             <label htmlFor="">Enter Your Number</label>
             <span>
@@ -234,9 +240,20 @@ export const Register = () => {
           {isLoading ? <h1>Please wait...</h1> : ""}
 
           <div className="loginTerms">
-          <div className="inpChecbx"><input className="inp" type="checkbox" /> <h2>Keep me signed in</h2></div>
-            <p>Selecting this checkbox will keep you signed into your account on this device until you sign out. Do not select this on shared devices.</p>
-            <h6>By signing in, I agree to the Expedia <span> Terms and Conditions</span>, <span>Privacy Statement</span> and <span>Expedia Rewards Terms and Conditions</span>.</h6>
+            <div className="inpChecbx">
+              <input className="inp" type="checkbox" />{" "}
+              <h2>Keep me signed in</h2>
+            </div>
+            <p>
+              Selecting this checkbox will keep you signed into your account on
+              this device until you sign out. Do not select this on shared
+              devices.
+            </p>
+            <h6>
+              By signing in, I agree to the Expedia{" "}
+              <span> Terms and Conditions</span>, <span>Privacy Statement</span>{" "}
+              and <span>Expedia Rewards Terms and Conditions</span>.
+            </h6>
           </div>
           <br />
           <h3 id="loginMesageError"></h3>
