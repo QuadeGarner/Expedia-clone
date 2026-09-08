@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import DestinationCard from './DestinationCard';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer'
+import { BASE_URL } from '../../baseurl';
 
 import {Grid,Box,Center} from '@chakra-ui/react';
 
@@ -18,11 +19,11 @@ export const Destination = () => {
   
   
   useEffect(()=>{
-    axios.get(`https://happy-sunglasses-eel.cyclic.app/Things_todo?place=${place}`).then((response) => {
+    axios.get(`${BASE_URL}/Things_todo?place=${place}`).then((response) => {
         setPlaces(response.data)
      console.log(response.data)
     });
-  },[])
+  },[place])
  
  
   return (

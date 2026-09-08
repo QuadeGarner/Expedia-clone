@@ -100,7 +100,7 @@ export const AdminDashboard = () => {
             <div className="dataBx">
               <h1>Total Flights</h1>
               {<h1>{flight}</h1>}
-              <Link to="/admin/flights">View</Link>
+              <Link to="/admin/products">View</Link>
             </div>
             <div className="dataBx">
               <h1>Total Users</h1>
@@ -110,12 +110,10 @@ export const AdminDashboard = () => {
             <div className="dataBx">
               <h1>Giftcards</h1>
               {<h1>{giftCard}</h1>}
-              <Link to="/admin/giftcards">View</Link>
             </div>
             <div className="dataBx">
               <h1>Pakages Available</h1>
               {<h1>{things}</h1>}
-              <Link to="/setThings">View</Link>
             </div>
             {/*  */}
           </div>

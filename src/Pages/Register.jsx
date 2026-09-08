@@ -156,7 +156,7 @@ export const Register = () => {
           <div className="logoImgdivReg">
             <img
               className="imglogoReg"
-              src="https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg':'https://i.postimg.cc/fRx4D7QH/logo3.png"
+              src="https://i.postimg.cc/QxksRNkQ/expedio-Logo.jpg"
               alt=""
             />
           </div>
