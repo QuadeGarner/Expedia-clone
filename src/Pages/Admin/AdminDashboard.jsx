@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 // import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchFlightProducts } from "../../Redux/AdminFlights/action";
+import { logout_user } from "../../Redux/Authantication/auth.action";
 import "./AdminDashboard.Module.css";
 
 
@@ -79,7 +80,7 @@ export const AdminDashboard = () => {
           <h1><Link to={"/admin/adminstay"}>Add Stays</Link></h1>
           <h1><Link to={"/admin/products"}>All Flights</Link></h1>
           <h1><Link to={"/admin/hotels"}>All Hotels</Link></h1>
-          <h1><Link to={"/"}>Log out</Link></h1>
+          <h1><Link to={"/"} onClick={() => dispatch(logout_user)}>Log out</Link></h1>
         </div>
         <div className="mainBox">
           <div className="mainBoxHead">

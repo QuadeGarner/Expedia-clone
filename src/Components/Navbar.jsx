@@ -30,12 +30,22 @@ import {
   import {HiOutlineChevronDown} from 'react-icons/hi'
   import {MdOutlineFlight} from 'react-icons/md'
   import {AiFillCar} from 'react-icons/ai'
-  import {Link as RouterLink} from 'react-router-dom'
+  import { Link as RouterLink, useNavigate } from 'react-router-dom'
+  import { useDispatch, useSelector } from 'react-redux';
+  import { logout_user } from '../Redux/Authantication/auth.action';
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
     const myColor = useColorModeValue('light','dark')
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isAuth = useSelector((store) => store.LoginReducer.isAuth);
+
+    const handleLogout = () => {
+      dispatch(logout_user);
+      navigate("/");
+    };
   
     return (
     
@@ -93,11 +103,23 @@ import {
             <Box fontWeight={'500'} fontSize={{base:'16px',sm:'23px'}}  display={'flex'} >
                 <Icon mt={0.5} mr={1}   as={IoIosNotifications} />
             </Box>
-             <RouterLink to="/login">
-            <Box fontWeight={'500'}  fontSize={{base:'12px',sm:'16px'}}  mr={9} >
-                SignIn
-            </Box>
-            </RouterLink>
+            {isAuth ? (
+              <Button
+                variant="link"
+                fontWeight={'500'}
+                fontSize={{base:'12px',sm:'16px'}}
+                mr={9}
+                onClick={handleLogout}
+              >
+                Log out
+              </Button>
+            ) : (
+              <RouterLink to="/login">
+                <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} mr={9}>
+                  SignIn
+                </Box>
+              </RouterLink>
+            )}
             <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>

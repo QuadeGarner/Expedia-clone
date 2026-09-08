@@ -2,6 +2,7 @@ import "./Admin.Module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { addHotel } from "../../Redux/AdminHotel/action";
+import { logout_user } from "../../Redux/Authantication/auth.action";
 import { useDispatch } from "react-redux";
 
 let initialState = {
@@ -38,7 +39,7 @@ export const AdminStay = () => {
           <h1><Link to={"/admin/adminstay"}>Add Stays</Link></h1>
           <h1><Link to={"/admin/products"}>All Flights</Link></h1>
           <h1><Link to={"/admin/hotels"}>All Hotels</Link></h1>
-          <h1><Link to={"/"}>Log out</Link></h1>
+          <h1><Link to={"/"} onClick={() => dispatch(logout_user)}>Log out</Link></h1>
 
         </div>
         <div className="adminFlightBox">
@@ -120,4 +121,3 @@ export const AdminStay = () => {
     </>
   );
 };
-
