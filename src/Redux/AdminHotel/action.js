@@ -51,7 +51,7 @@ export const addHotel = (payload) => (dispatch) => {
 
 export const fetchingHotels = (limit) => (dispatch) => {
   axios
-    .get(`${BASE_URL}/hotel?_limit=${limit}`) // https://makemytrip-api-data.onrender.com/hotel?_limit=${limit}
+    .get(`${BASE_URL}/hotel`)
     .then((res) => {
       //   console.log(res.data);
       dispatch(fetch_hotel(res.data));

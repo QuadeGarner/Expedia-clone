@@ -48,14 +48,16 @@ export const addFlight = (payload) => (dispatch) => {
 };
 
 //
-export const fetchFlightProducts = (limit) => (dispatch) => {
+export const fetchFlightProducts = () => (dispatch) => {
   dispatch(flightRequest());
+
   axios
-    .get(`${BASE_URL}/flight?_limit=${limit}`)   //https://makemytrip-api-data.onrender.com/flight?_limit=${limit}
+    .get(`${BASE_URL}/flight`)
     .then((res) => {
       dispatch(fetch_flights_product(res.data));
     })
     .catch((err) => {
+      console.log(err);
       dispatch(flightFailure());
     });
 };
@@ -69,7 +71,7 @@ export const DeleteFlightProducts = (deleteId) => async (dispatch) => {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     let data = await res.json();
     console.log(data);
