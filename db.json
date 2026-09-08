@@ -5317,5 +5317,14 @@
       "price": "3,334"
     }
   ],
+  "cars": [
+    {
+      "name": "Dixon",
+      "type": "ahsl",
+      "price": "1000",
+      "id": "TFBeFYyvPns"
+    }
+  ],
+  "packages": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

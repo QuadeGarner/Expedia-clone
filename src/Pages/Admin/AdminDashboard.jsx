@@ -96,6 +96,9 @@ export const AdminDashboard = () => {
           <h1>
             <Link to={"/admin/hotels"}>All Hotels</Link>
           </h1>
+          <h1><Link to={"/admin/cars"}>Cars</Link></h1>
+          <h1><Link to={"/admin/things"}>Things to Do</Link></h1>
+          <h1><Link to={"/admin/packages"}>Packages</Link></h1>
           <h1>
             <Link to={"/"} onClick={() => dispatch(logout_user)}>
               Log out

@@ -4,12 +4,14 @@ import {
   Box,
   
   Image,
+  Button,
   
 } from '@chakra-ui/react';
+import { saveTrip } from '../../checkoutCart';
 
 
 
-export default function DestinationCard({image,title,price,rating,place}){
+export default function DestinationCard({id,image,title,price,rating,place}){
   const property = {
     imageUrl: 'https://bit.ly/2Z4KKcF',
     imageAlt: 'Rear view of modern home with pool',
@@ -65,6 +67,13 @@ export default function DestinationCard({image,title,price,rating,place}){
             {rating} reviews
           </Box>
         </Box>
+        <Button
+          mt={3}
+          colorScheme="blue"
+          onClick={() => saveTrip({ id, image, title, price, rating, place, tripType: "thing" })}
+        >
+          Add to cart
+        </Button>
       </Box>
     </Box>
   )

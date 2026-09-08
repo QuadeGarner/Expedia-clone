@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useColorModeValue } from "@chakra-ui/react";
 import { BASE_URL } from "../../baseurl";
 import { logout_user } from "../../Redux/Authantication/auth.action";
 import "./adminProduct.css";
@@ -26,6 +27,7 @@ export const AdminUsers = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalTheme = useColorModeValue("light", "dark");
 
   const loadUsers = async () => {
     setLoading(true);
@@ -132,7 +134,7 @@ export const AdminUsers = () => {
         onClick={() => setIsModalOpen(false)}
         >
         <div
-          className="adminUserModal"
+          className={`adminUserModal ${modalTheme}`}
           role="dialog"
           aria-modal="true"
           aria-labelledby="edit-user-title"

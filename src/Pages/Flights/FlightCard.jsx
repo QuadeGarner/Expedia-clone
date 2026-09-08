@@ -1,16 +1,14 @@
 import { Box, Image, Flex, Button } from "@chakra-ui/react";
-import axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { saveTrip } from "../../checkoutCart";
 
 export default function FlightCard({ data }) {
   const { id, airline, from, to, departure, arrival, price, totalTime } = data;
   const toast = useToast();
 
   const handleClick = () => {
-    axios.post(`http://localhost:8000/flightcart`, data);
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err))
+    saveTrip({ ...data, tripType: "flight" });
 
     toast({
       title: "Flight Add to Cart",

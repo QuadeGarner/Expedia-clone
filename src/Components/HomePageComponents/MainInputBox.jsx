@@ -3,6 +3,8 @@ import Stay from '../../Pages/Stay/Stay';
 import React from 'react'
 import { InputBox } from '../../Pages/ThingsTodo/InputBox'
 import Flights from '../../Pages/Flights/Flight'
+import { CarInput } from "../CarInput";
+import { CatalogPanel } from "./CatalogPanel";
 
 const MainInputBox = () => {
   return (
@@ -31,13 +33,13 @@ const MainInputBox = () => {
                         <Flights/>
                     </TabPanel>
                     <TabPanel>
-                        <p>Cars</p>
+                        <CarInput/>
                     </TabPanel>
                     <TabPanel>
                         <InputBox/>
                     </TabPanel>
                     <TabPanel>
-                        <p>Packages</p>
+                        <CatalogPanel endpoint="packages" title="Packages" fields={["description", "price"]}/>
                     </TabPanel>
                 </TabPanels>
             </Tabs>

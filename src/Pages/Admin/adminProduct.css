@@ -167,6 +167,18 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
+.adminUserModal.dark {
+  color: #f7fafc;
+  background: #2d3748;
+}
+
+.adminUserModal.dark input,
+.adminUserModal.dark select {
+  color: #f7fafc;
+  background: #4a5568;
+  border-color: #a0aec0;
+}
+
 .adminUserModalHeader,
 .adminUserModalActions {
   display: flex;

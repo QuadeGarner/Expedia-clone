@@ -18,11 +18,11 @@ export const Destination = () => {
   
   
   useEffect(()=>{
-    axios.get(`https://happy-sunglasses-eel.cyclic.app/Things_todo?place=${place}`).then((response) => {
+    axios.get(`http://localhost:8080/Things_todo?place=${place || ""}`).then((response) => {
         setPlaces(response.data)
      console.log(response.data)
     });
-  },[])
+  },[place])
  
  
   return (
@@ -33,7 +33,7 @@ export const Destination = () => {
         <Center>
       
       <Grid templateColumns={{ base: 'repeat(1, 1fr)',  md: 'repeat(2, 1fr)',lg:'repeat(3, 1fr)'} } columnGap={20} rowGap={20} mt={"60px"}>
-       {places.map((el)=>(<DestinationCard key={el.id} image={el.image} title={el.title} price={el.price} rating={+el.rating ? +el.rating : 0} place={el.place}/>
+       {places.map((el)=>(<DestinationCard key={el.id} id={el.id} image={el.image} title={el.title} price={el.price} rating={+el.rating ? +el.rating : 0} place={el.place}/>
         ))}
         </Grid>
     
