@@ -37,17 +37,26 @@ const StayData = () => {
   // }, [dispatch]);
 
   useEffect(() => {
-    if (data) {
-      setFilteredHotel(
-        data.filter(
-          (hotel) =>
-            hotel.price >= selectedPriceRange[0] &&
-            hotel.price <= selectedPriceRange[1]
-        )
-      );
-      console.log(filteredHotel);
-    }
-  }, [data, selectedPriceRange]);
+  if (data) {
+    const searchText = selectedCity?.trim().toLowerCase() || "";
+
+    setFilteredHotel(
+      data.filter((hotel) => {
+        const matchesPrice =
+          hotel.price >= selectedPriceRange[0] &&
+          hotel.price <= selectedPriceRange[1];
+
+        const matchesSearch =
+          !searchText ||
+          [hotel.name, hotel.place, hotel.location].some((value) =>
+            value?.toLowerCase().includes(searchText)
+          );
+
+        return matchesPrice && matchesSearch;
+      })
+    );
+  }
+}, [data, selectedPriceRange, selectedCity]);
 
 console.log(data)
   return (

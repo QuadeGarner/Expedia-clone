@@ -11,10 +11,9 @@ import { selectCity } from "../../Redux/StayReducer/action";
 function Stay() {
   const [selectedCity, setSelectedCity] = useState("");
   const dispatch = useDispatch();
-  const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    console.log(string, results);
+  const handleOnSearch = (string) => {
+    setSelectedCity(string);
+    dispatch(selectCity(string));
   };
 
   const handleOnHover = (result) => {
