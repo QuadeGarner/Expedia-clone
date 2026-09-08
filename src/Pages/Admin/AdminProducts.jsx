@@ -14,6 +14,8 @@ import { logout_user } from "../../Redux/Authantication/auth.action";
 export const AdminProducts = () => {
   const dispatch = useDispatch();
   const [limit, setLimit] = useState(5);
+  const [searchText, setSearchText] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const { isLoading, data } = useSelector((store) => {
     return {
       isLoading: store.FlightReducer.isLoading,
@@ -46,6 +48,22 @@ export const AdminProducts = () => {
     dispatch(fetchFlightProducts(limit));
   }, [limit]);
 
+  const filteredFlights = data.filter((flight) => {
+  const query = searchQuery.trim().toLowerCase();
+
+  if (!query) {
+    return true;
+  }
+
+  return [
+    flight.airline,
+    flight.from,
+    flight.to,
+    flight.price,
+    flight.number,
+  ].some((value) => value?.toString().toLowerCase().includes(query));
+});
+
   return (
     <>
       <ToastContainer />
@@ -60,8 +78,21 @@ export const AdminProducts = () => {
         </div>
         <div className="adminProductbox">
           <div className="filterProdcut">
-            <input placeholder="Search Flight" type="text" />
-            <button>Search</button>
+            <input
+              placeholder="Search Flight"
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setSearchQuery(searchText);
+                }
+              }}
+            />
+
+            <button type="button" onClick={() => setSearchQuery(searchText)}>
+              Search
+            </button>
             {limit > data.length ? (
               ""
             ) : (
@@ -71,7 +102,7 @@ export const AdminProducts = () => {
           <div className="head"><h1>All Flights</h1></div>
           {/*  */}
           {isLoading ? <h1>Please wait...</h1> : ""}
-          {data.map((ele, i) => (
+          {filteredFlights.map((ele, i) => (
             <div key={i} className="adminProductlist">
               <span>{ele.airline}</span>
               <span>{ele.from}</span>

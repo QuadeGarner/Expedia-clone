@@ -12,6 +12,8 @@ import { logout_user } from "../../Redux/Authantication/auth.action";
 export const AllHotels = () => {
   const dispatch = useDispatch();
   const [limit, setLimit] = useState(5);
+  const [searchText, setSearchText] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const { isLoading, data } = useSelector((store) => {
     return {
       isLoading: store.HotelReducer.isLoading,
@@ -47,6 +49,18 @@ export const AllHotels = () => {
     dispatch(fetchingHotels(limit));
   }, [limit]);
 
+  const filteredHotels = data.filter((hotel) => {
+  const query = searchQuery.trim().toLowerCase();
+
+  if (!query) {
+    return true;
+  }
+
+  return [hotel.name, hotel.place, hotel.location].some((value) =>
+    value?.toLowerCase().includes(query)
+  );
+});
+
   return (
     <>
       <ToastContainer />
@@ -62,8 +76,21 @@ export const AllHotels = () => {
         </div>
         <div className="adminProductbox">
           <div className="filterProdcut">
-            <input placeholder="Search Flight" type="text" />
-            <button>Search</button>
+            <input
+              placeholder="Search Hotel"
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setSearchQuery(searchText);
+                }
+              }}
+            />
+
+            <button type="button" onClick={() => setSearchQuery(searchText)}>
+              Search
+            </button>
             {limit > data.length ? (
               ""
             ) : (
@@ -74,7 +101,7 @@ export const AllHotels = () => {
 
           {/*  */}
           {isLoading ? <h1>Please wait...</h1> : ""}
-          {data.map((ele, i) => (
+          {filteredHotels.map((ele, i) => (
             <div key={i} className="adminProductlist">
               <span>
                 <img src={ele.image} alt="" />
