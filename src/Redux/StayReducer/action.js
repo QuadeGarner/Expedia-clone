@@ -62,11 +62,12 @@ export const fetchingHotels = (sort, order, page) => async (dispatch) => {
   console.log(order, sort,page);
   dispatch({ type: HOTEL_REQUEST });
   try {
+    const sortParam = sort ? `_sort=${order === "desc" ? `-${sort}` : sort}&` : "";
     const res = await axios.get(
-      `${BASE_URL}/hotel?_sort=${sort}&_order=${order}&_page=${page}&_limit=20`
+      `${BASE_URL}/hotel?${sortParam}_page=${page || 1}&_per_page=20`
     );
     console.log(res.data);
-    dispatch({ type: GET_HOTEL_SUCCESS, payload: res.data });
+    dispatch({ type: GET_HOTEL_SUCCESS, payload: res.data.data });
   } catch (err) {
     dispatch({ type: HOTEL_FAILURE });
     console.log(err);
