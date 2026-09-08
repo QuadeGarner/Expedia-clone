@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { AdminDashboard } from "./Admin/AdminDashboard";
 import { AdminProducts } from "./Admin/AdminProducts";
 import { AllHotels } from "./Admin/AllHotels";
+import { AdminUsers } from "./Admin/AdminUsers";
 import { Destination } from "./ThingsTodo/Destination";
 import HomePage from "./HomePage";
 import { Login } from "./Login";
@@ -66,6 +67,14 @@ export const AllRoutes = () => {
             </AdminRoute>
           }
         />
+        <Route
+          path="/admin/flights"
+          element={
+            <AdminRoute>
+              <AdminProducts />
+            </AdminRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
@@ -73,6 +82,14 @@ export const AllRoutes = () => {
           element={
             <AdminRoute>
               <AllHotels />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <AdminRoute>
+              <AdminUsers />
             </AdminRoute>
           }
         />
