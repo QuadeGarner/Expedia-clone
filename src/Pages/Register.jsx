@@ -54,6 +54,7 @@ export const Register = () => {
       dob: "",
       gender: "",
       marital_status: null,
+      role: "user",
     };
     dispatch(userRigister(newObj));
     setCheck(state);

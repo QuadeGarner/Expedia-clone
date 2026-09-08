@@ -8,6 +8,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "1"
     },
     {
@@ -18,6 +19,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "2"
     },
     {
@@ -28,6 +30,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "3"
     },
     {
@@ -38,6 +41,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "4"
     },
     {
@@ -48,6 +52,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "5"
     },
     {
@@ -58,6 +63,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "6"
     },
     {
@@ -68,6 +74,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "7"
     },
     {
@@ -78,6 +85,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "8"
     },
     {
@@ -88,6 +96,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "user",
       "id": "9"
     },
     {
@@ -98,6 +107,7 @@
       "dob": "",
       "gender": "",
       "marital_status": null,
+      "role": "admin",
       "id": "lqWRaumLds4"
     }
   ],

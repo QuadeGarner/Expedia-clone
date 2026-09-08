@@ -22,7 +22,7 @@ export const LoginReducer = (state = initialState, {type, payload}) => {
 
         case GET_USERS : return {...state, isLoading: state.isLoading = false, isError: state.isError= false, user: state.user = payload}
 
-        case LOGOUT_USER : return {...state, isLoading: state.isLoading = false, isError: state.isError= false, activeUser: state.activeUser = {}, isAuth: state.isActive = false}
+        case LOGOUT_USER : return {...state, isLoading: false, isError: false, activeUser: {}, isAuth: false}
 
         default: return state
     }
