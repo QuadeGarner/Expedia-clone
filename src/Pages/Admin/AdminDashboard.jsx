@@ -8,7 +8,6 @@ import { logout_user } from "../../Redux/Authantication/auth.action";
 import { BASE_URL } from "../../baseurl";
 import "./AdminDashboard.Module.css";
 
-
 export const AdminDashboard = () => {
   const dispatch = useDispatch();
   const [flight, setFlight] = useState(0);
@@ -16,7 +15,7 @@ export const AdminDashboard = () => {
   const [users, setUsers] = useState(0);
   const [giftCard, setGiftCard] = useState(0);
   const [things, setThings] = useState(0);
- const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getHotel = () => {
     setLoading(true);
@@ -47,7 +46,7 @@ export const AdminDashboard = () => {
         console.log(err);
       });
 
-      axios
+    axios
       .get(`${BASE_URL}/giftcards`)
       .then((res) => {
         setGiftCard(res.data.length);
@@ -55,8 +54,16 @@ export const AdminDashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-    
-      axios
+    axios
+      .get(`${BASE_URL}/users`)
+      .then((res) => {
+        setUsers(res.data.length);
+      })
+      .catch((err) => {
+        console.lod(err);
+      });
+
+    axios
       .get(`${BASE_URL}/Things_todo`)
       .then((res) => {
         setThings(res.data.length);
@@ -64,8 +71,6 @@ export const AdminDashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-    
-    
   };
 
   useEffect(() => {
@@ -76,12 +81,29 @@ export const AdminDashboard = () => {
     <>
       <div className="mainAdminLandingpage">
         <div className="adminSideBr">
-          <h1><Link to={"/admin"}>Home</Link></h1>
-          <h1><Link to={"/admin/adminflight"}>Add Flight</Link></h1>
-          <h1><Link to={"/admin/adminstay"}>Add Stays</Link></h1>
-          <h1><Link to={"/admin/products"}>All Flights</Link></h1>
-          <h1><Link to={"/admin/hotels"}>All Hotels</Link></h1>
-          <h1><Link to={"/"} onClick={() => dispatch(logout_user)}>Log out</Link></h1>
+          <h1>
+            <Link to={"/admin"}>Home</Link>
+          </h1>
+          <h1>
+            <Link to={"/admin/adminflight"}>Add Flight</Link>
+          </h1>
+          <h1>
+            <Link to={"/admin/adminstay"}>Add Stays</Link>
+          </h1>
+          <h1>
+            <Link to={"/admin/products"}>All Flights</Link>
+          </h1>
+          <h1>
+            <Link to={"/admin/hotels"}>All Hotels</Link>
+          </h1>
+          <h1><Link to={"/admin/cars"}>Cars</Link></h1>
+          <h1><Link to={"/admin/things"}>Things to Do</Link></h1>
+          <h1><Link to={"/admin/packages"}>Packages</Link></h1>
+          <h1>
+            <Link to={"/"} onClick={() => dispatch(logout_user)}>
+              Log out
+            </Link>
+          </h1>
         </div>
         <div className="mainBox">
           <div className="mainBoxHead">
@@ -105,7 +127,7 @@ export const AdminDashboard = () => {
             <div className="dataBx">
               <h1>Total Users</h1>
               {<h1>{users}</h1>}
-              <Link to="/admin">View</Link>
+              <Link to="/admin/users">View</Link>
             </div>
             <div className="dataBx">
               <h1>Giftcards</h1>

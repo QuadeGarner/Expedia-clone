@@ -1,7 +1,6 @@
 <h1>Chalo Ghume</h1>
 
-<p>This project is a clone of the Expedia website, created by Team of 5 starting with Kumkum (Team Lead), Ashish, Amit, Sagar Balsaraf, and Sarim . The purpose of this project is to showcase our skills and knowledge in HTML, CSS, JavaScript, React, Redux, and Json-Server.<p>
-
+<p>This project is a clone of the Expedia website, modified by Team of 3 starting with Quade Garner, Dustin Fouts, and Kylee Anderson, based on the code provide by K . The purpose of this project is to.. (No f*cking clue lol) <p>
 
 <h2>Tech Stack</h2>
 
@@ -12,7 +11,6 @@
 - Redux
 - Json-Server
 - firebase
-
 
 <h2>Dependency</h2>
 
@@ -36,17 +34,17 @@
 - Sorting & Filtering and Seraching
 - Book flights, hotels.
 - Cart Section
-- Admin Panel
+- Admin Panel with blocking action of no admins
 
 <h2>Installation</h2>
 
 To run this project locally, follow the steps below:
 
 . Clone the repository by running the following command:
-git clone https://github.com/kumkumdutta/interesting-stretch-8935.git
+git clone https://github.com/QuadeGarner/Expedia-clone.git
 
 . Navigate to the project directory:
-cd hesitant-river-6235
+cd expedia-clone
 
 . Install the dependencies:
 npm install
@@ -60,6 +58,7 @@ npm run server
 . Open the website in your browser:
 http://localhost:3000/
 
+# Needs to be updated
 
 <h2>Deployment</h2>
 
@@ -67,23 +66,14 @@ This project has been deployed using Vercel at the following URL:
 
 https://interesting-stretch-8935-liart.vercel.app/
 
-
 This is Login and Signup pages:-
 ![login](https://user-images.githubusercontent.com/112754519/231046318-135d34cb-0ae7-46c3-851c-6889441c62de.PNG)
-
-
 
 This is the Stays Page:-
 ![stays](https://user-images.githubusercontent.com/112754519/231046349-d9885d9f-b42d-4d9f-bfc2-0cac0f9a10df.PNG)
 
-
-
 This is the Flight Page:-
 ![Flight](https://user-images.githubusercontent.com/112754519/231046392-fea5d486-9b26-462c-af9a-5727853e6669.PNG)
 
-
-
 This is the Admin Page:-
 ![Admin](https://user-images.githubusercontent.com/112754519/231046415-c8c2f14c-f586-4da0-884a-992bc18b0e12.PNG)
-
-

@@ -109,6 +109,17 @@
       "marital_status": null,
       "role": "admin",
       "id": "lqWRaumLds4"
+    },
+    {
+      "number": "6415551234",
+      "user_name": "Dustin Fouts",
+      "password": "123456",
+      "email": "",
+      "dob": "",
+      "gender": "",
+      "marital_status": "",
+      "role": "user",
+      "id": "pcWtITgkytM"
     }
   ],
   "hotelcart": [
@@ -450,6 +461,17 @@
       "price": 4210,
       "totalTime": "2h : 00",
       "id": "22"
+    },
+    {
+      "airline": "dkfl;saj",
+      "number": "skfdjl;",
+      "from": "Des Monies",
+      "to": "Chi",
+      "departure": "1100",
+      "arrival": "1200",
+      "price": 100,
+      "totalTime": "1",
+      "id": "ErfbbvXVT4Y"
     }
   ],
   "giftcards": [
@@ -5295,5 +5317,14 @@
       "price": "3,334"
     }
   ],
+  "cars": [
+    {
+      "name": "Dixon",
+      "type": "ahsl",
+      "price": "1000",
+      "id": "TFBeFYyvPns"
+    }
+  ],
+  "packages": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -33,6 +33,8 @@ import {
   import { Link as RouterLink, useNavigate } from 'react-router-dom'
   import { useDispatch, useSelector } from 'react-redux';
   import { logout_user } from '../Redux/Authantication/auth.action';
+  import { useEffect, useState } from 'react';
+  import { getSavedTrips } from '../checkoutCart';
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
@@ -41,6 +43,18 @@ import {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const isAuth = useSelector((store) => store.LoginReducer.isAuth);
+    const [savedTripCount, setSavedTripCount] = useState(0);
+
+    useEffect(() => {
+      const refreshCartCount = () => setSavedTripCount(getSavedTrips().length);
+      refreshCartCount();
+      window.addEventListener("storage", refreshCartCount);
+      window.addEventListener("expedia-cart-updated", refreshCartCount);
+      return () => {
+        window.removeEventListener("storage", refreshCartCount);
+        window.removeEventListener("expedia-cart-updated", refreshCartCount);
+      };
+    }, []);
 
     const handleLogout = () => {
       dispatch(logout_user);
@@ -96,9 +110,11 @@ import {
                 Support
             </Box>
 
-            <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} display={'flex'} >
-                Trip
-            </Box>
+            <RouterLink to="/checkout">
+              <Box fontWeight={'500'} fontSize={{base:'12px',sm:'16px'}} display={'flex'} >
+                  Saved trips ({savedTripCount})
+              </Box>
+            </RouterLink>
 
             <Box fontWeight={'500'} fontSize={{base:'16px',sm:'23px'}}  display={'flex'} >
                 <Icon mt={0.5} mr={1}   as={IoIosNotifications} />
@@ -174,8 +190,7 @@ import {
                   
                   border={0}
                   boxShadow={'xl'}
-                  // bg={popoverContentBgColor}
-                  bg={'white'}
+                  bg={popoverContentBgColor}
                   zIndex={5}
                   p={4}
                   rounded={'xl'}

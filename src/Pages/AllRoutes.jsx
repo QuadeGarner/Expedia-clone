@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { AdminDashboard } from "./Admin/AdminDashboard";
 import { AdminProducts } from "./Admin/AdminProducts";
 import { AllHotels } from "./Admin/AllHotels";
+import { AdminUsers } from "./Admin/AdminUsers";
 import { Destination } from "./ThingsTodo/Destination";
 import HomePage from "./HomePage";
 import { Login } from "./Login";
@@ -14,6 +15,7 @@ import { Register } from "./Register";
 import StayData from "./Stay/StayData";
 import CheckoutPage from "./CheckoutPage";
 import FlightData from "./Flights/FlightData";
+import { AdminCatalog } from "./Admin/AdminCatalog";
 
 const AdminRoute = ({ children }) => {
   const { isAuth, activeUser } = useSelector((store) => store.LoginReducer);
@@ -66,6 +68,14 @@ export const AllRoutes = () => {
             </AdminRoute>
           }
         />
+        <Route
+          path="/admin/flights"
+          element={
+            <AdminRoute>
+              <AdminProducts />
+            </AdminRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
@@ -76,6 +86,17 @@ export const AllRoutes = () => {
             </AdminRoute>
           }
         />
+        <Route
+          path="/admin/users"
+          element={
+            <AdminRoute>
+              <AdminUsers />
+            </AdminRoute>
+          }
+        />
+        <Route path="/admin/cars" element={<AdminRoute><AdminCatalog endpoint="cars" title="Cars" fields={[{ name: "name", label: "Car name" }, { name: "type", label: "Type" }, { name: "price", label: "Price" }, { name: "image", label: "Image URL", required: false }]} /></AdminRoute>} />
+        <Route path="/admin/packages" element={<AdminRoute><AdminCatalog endpoint="packages" title="Packages" fields={[{ name: "name", label: "Package name" }, { name: "description", label: "Description" }, { name: "price", label: "Price" }, { name: "image", label: "Image URL", required: false }]} /></AdminRoute>} />
+        <Route path="/admin/things" element={<AdminRoute><AdminCatalog endpoint="Things_todo" title="Things to Do" fields={[{ name: "title", label: "Title" }, { name: "place", label: "Place" }, { name: "price", label: "Price" }, { name: "rating", label: "Rating" }, { name: "image", label: "Image URL", required: false }]} /></AdminRoute>} />
         <Route path="/ThingsToDo" element={<Destination />} />
         <Route path="/stay" element={<StayData />} />
         <Route path="/flight" element={<FlightData />} />
