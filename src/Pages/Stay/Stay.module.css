@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .SearchBtn1{
-    margin-top: 3%;
+    margin-top: 0;
     width:164px;
     height: 43px;
     background: #3662D8;
@@ -14,7 +14,82 @@
 }
 .calenderWrapper{
     display:flex;
-    justify-content: space-around;
-    margin-right: 21%;
+    align-items: flex-start;
+    gap: 20px;
     margin-bottom: 20px;
+    height: 100px;
+}
+.staySearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    padding: 12px 0;
+}
+.stayOptions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+}
+.cityField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    flex: 0 0 200px;
+    padding: 1rem;
+    border: 1px solid rgb(114, 114, 114);
+    border-radius: 20px;
+    background: transparent;
+    text-align: left;
+}
+.cityField label {
+    display: block;
+    margin-bottom: 8px;
+    color: inherit;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.cityField select {
+    width: 100%;
+    height: 34px;
+    padding: 0 4px;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    outline: none;
+    font-size: 1rem;
+}
+.calendarField {
+    width: 420px;
+    height: 100px;
+}
+
+@media (max-width: 900px) {
+    .stayOptions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cityField,
+    .calendarField {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .cityField {
+        flex-basis: auto;
+    }
+
+    .calenderWrapper {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 }

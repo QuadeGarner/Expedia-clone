@@ -5325,6 +5325,25 @@
       "id": "TFBeFYyvPns"
     }
   ],
-  "packages": [],
+  "packages": [
+    {
+      "name": "alksdj",
+      "description": "ksfd;",
+      "price": "1000",
+      "id": "nI-_l4uxyLA"
+    },
+    {
+      "name": "Dixon",
+      "description": "ksfd;",
+      "price": "1000",
+      "id": "cd3JpM3ACeY"
+    },
+    {
+      "name": "Generic H2 (Embedded)",
+      "description": "ksfd;",
+      "price": "1000",
+      "id": "fNRffOWKqAQ"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
